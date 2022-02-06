@@ -97,3 +97,22 @@ function picnicBudget(person) {
 const budget = picnicBudget("100");
 console.log(budget);
 ```
+
+### 4. [ ফাংশন নেম দিতে হবে oddFriend]: একটি অ্যারে এর ভিতরে তোমার বন্ধুদের নাম লিখবে। তোমার যেই বন্ধুর নাম বিজোড় সংখ্যায় আছে তার নাম আউটপুট হিসেবে দেখাতে হবে।
+
+```
+function oddFriend(friends) {
+  if (Array.isArray(friends)) {
+    for (let i = 0; i < friends.length; i++) {
+      if (friends[i].length % 2 == 1) {
+        return friends[i];
+      }
+    }
+  }
+  return "please give a valid input value";
+}
+
+const myfriends = ["sarfaraz", "narandra", "ali", "kopila", "aladin", "motin"];
+const result = oddFriend(myfriends);
+console.log(result);
+```
