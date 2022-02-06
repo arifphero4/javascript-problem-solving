@@ -114,6 +114,11 @@ function oddFriend(friends) {
   }
   return "please give a valid input value";
 }
+<!-- for (let i = 0; i < friends.length; i++) {
+      if (friends[i].length % 2 == 1) {
+        return friends[i];
+      }
+    } -->
 
 const myfriends = ["sarfaraz", "narandra", "ali", "kopila", "aladin", "motin"];
 const result = oddFriend(myfriends);
