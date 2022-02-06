@@ -72,29 +72,32 @@ function picnicBudget(person) {
 
   if (person <= 0) {
     return "please give a positive input value";
-  } else if (typeof person == "string") {
+  } else if (typeof person != "number") {
     return "please give a number as input value";
-  } else if (person <= 100) {
-    let totalBudget = first100People * person;
+  } else if (typeof person == "number") {
+    if (person <= 100) {
+      let totalBudget = first100People * person;
 
-    return totalBudget;
-  } else if (person > 100 && person <= 200) {
-    let costForFirst100 = 100 * first100People;
-    let costForSecond100 = (person - 100) * second100People;
+      return totalBudget;
+    } else if (person > 100 && person <= 200) {
+      let costForFirst100 = 100 * first100People;
+      let costForSecond100 = (person - 100) * second100People;
 
-    const totalBudget = costForFirst100 + costForSecond100;
-    return totalBudget;
-  } else if (person > 200) {
-    let costForFirst100 = 100 * first100People;
-    let costForSecond100 = 100 * second100People;
-    let costForRestPeople = (person - 200) * restPeople;
+      const totalBudget = costForFirst100 + costForSecond100;
+      return totalBudget;
+    } else if (person > 200) {
+      let costForFirst100 = 100 * first100People;
+      let costForSecond100 = 100 * second100People;
+      let costForRestPeople = (person - 200) * restPeople;
 
-    const totalBudget = costForFirst100 + costForSecond100 + costForRestPeople;
-    return totalBudget;
+      const totalBudget =
+        costForFirst100 + costForSecond100 + costForRestPeople;
+      return totalBudget;
+    }
   }
 }
 
-const budget = picnicBudget("100");
+const budget = picnicBudget(150);
 console.log(budget);
 ```
 
