@@ -106,9 +106,9 @@ console.log(budget);
 ```
 function oddFriend(friends) {
   if (Array.isArray(friends)) {
-    for (let i = 0; i < friends.length; i++) {
-      if (friends[i].length % 2 == 1) {
-        return friends[i];
+    for (const friend of friends) {
+      if (friend.length % 2) {
+        return friend;
       }
     }
   }
