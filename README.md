@@ -53,3 +53,47 @@ function pandaCost(singgara, somucha, jalebi) {
 const productCost = pandaCost("2", "2", "2");
 console.log(productCost);
 ```
+
+### 3. [ ফাংশন নেম দিতে হবে picnicBudget]: প্যারামিটার হিসাবে নিবে কয়জন পিকিনিক এ যাবে সেই সংখ্যা।
+
+যদি ১০০ বা তার কম যায় তাহলে প্রত্যেক এর জন্য খরচ হবে ৫০০০ টাকা করে।
+
+যদি ১০০ এর বেশি কিন্তু ২০০ এর কম বা সমান যায় তাহলে প্রথম ১০০ জন এর প্রতি জন এর জন্য ৫০০০ টাকা করে দিতে হবে। আর ১০০ এর বেশি (অর্থাৎ ১০১ নম্বর থেকে) যতজন আছে তাদের প্রত্যেক ওই জন্য ৪০০০ টাকা করে দিতে হবে।
+
+আর যদি ২০০ এর বেশি যায় তাহলে প্রথম ১০০ জন এর প্রতি জন এর জন্য ৫০০০ টাকা করে দিতে হবে। আর ১০০ এর বেশি যতজন আছে তাদের প্রত্যেকের জন্য ৪০০০ টাকা করে দিতে হবে। এর ২০০ এর বেশি (অর্থাৎ ২০১ নম্বর থেকে) যতজন আছে তাদের প্রত্যেক এর জন্য ৩০০০ টাকা করে দিতে হবে।
+
+এখন আমি একটা প্যারামিটার দিবো। সেটা যেকোন সংখ্যা হতে পারে। সেই সংখ্যা অনুসারে তুমি ফাংশন থেকে রিটার্ন দিবে কতটাকা পিকনিক এর বাজেট হতে হবে। ইনপুট প্যারামিটার সংখ্যাটা ১০০ এর কম হতে পারে। ১০০ থেকে ২০০ এর মধ্যে হতে পারে। আবার ২০০ এর বেশিও হতে পারে। তাই সব কেইস ভালো করে টেস্ট করে নিবে।
+
+```
+function picnicBudget(person) {
+  const first100People = 5000;
+  const second100People = 4000;
+  const restPeople = 3000;
+
+  if (person <= 0) {
+    return "please give a positive input value";
+  } else if (typeof person == "string") {
+    return "please give a number as input value";
+  } else if (person <= 100) {
+    let totalBudget = first100People * person;
+
+    return totalBudget;
+  } else if (person > 100 && person <= 200) {
+    let costForFirst100 = 100 * first100People;
+    let costForSecond100 = (person - 100) * second100People;
+
+    const totalBudget = costForFirst100 + costForSecond100;
+    return totalBudget;
+  } else if (person > 200) {
+    let costForFirst100 = 100 * first100People;
+    let costForSecond100 = 100 * second100People;
+    let costForRestPeople = (person - 200) * restPeople;
+
+    const totalBudget = costForFirst100 + costForSecond100 + costForRestPeople;
+    return totalBudget;
+  }
+}
+
+const budget = picnicBudget("100");
+console.log(budget);
+```
