@@ -4,15 +4,15 @@
 function anaToVori(ana) {
   if (ana <= 0) {
     return "please give a positive value";
-  } else if (typeof ana == "string") {
+  } else if (typeof ana != "number") {
     return "please give number as input value";
-  } else if (typeof ana == "number") {
+  } else {
     let total = ana / 16;
     return total;
   }
 }
 
-const totalVori = anaToVori(32);
+const totalVori = anaToVori(true);
 console.log(totalVori);
 ```
 
